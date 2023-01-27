@@ -1,22 +1,25 @@
 const User = require("../../models/userModel")
+// const bcrypt =  require("bcrypt")
 
 exports.signup = async (req, res, next) => {
-    const {name, userName, email, password, profile} = req.body;
     
+    
+    console.log(req.body.username)
     try {
+        
+        req.body.password = new bcrypt.hash(req.body.password, 11)
+        
+        const {name, username, email, password, profile} = req.body;
         const user = await User.create({
             name,
-            userName,
+            username,
             email,
             password,
-            profile
+            profile,
         })    
         res.status(201).json({
-            message: `Dear Mr. ${name} user is created`, user
+            message: `Dear Mr. ${name} user is created`, user, 
         })
-        
-        console.log(name);
- 
     } catch (error) {
         res.status(401).json("Something wents wrong !!")
     }

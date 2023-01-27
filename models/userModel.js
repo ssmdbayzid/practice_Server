@@ -6,7 +6,7 @@ const userSchema   = new mongoose.Schema({
         trim: true, 
         require:true,
     },
-    userName:{
+    username:{
         type: String,
         trim: true, 
         require:true,
@@ -22,11 +22,6 @@ const userSchema   = new mongoose.Schema({
         type: String,
         trim: true, 
         require:true,
-        // validate: {
-        //     validate:{
-        //         minlength: 6
-        //     }
-        // }
     },
     profile: {
         type:String,
