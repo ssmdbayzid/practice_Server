@@ -7,8 +7,10 @@ const getCartItems = (req, res)=>{
 }
 
 const addToCart = (req, res)=>{
-    res.status(200).json({status: `Add item to Cart id ${req.body}`})
-    console.log(req.body);
+
+
+    res.status(200).json({status: `Add item to Cart id ${req.body.name}`})
+    console.log(req.body.name);
 }
 
 const deleteCartItem = (req, res) =>{

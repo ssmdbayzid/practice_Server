@@ -1,10 +1,11 @@
 const express = require("express")
 const app = express()
 const cors = require("cors")
-const { errorHandler } = require("./middleWare/errorMiddleWare")
+// const { errorHandler } = require("./middleWare/errorMiddleWare")
 const connectDB = require("./config/connectDB")
 const port = 5000 || process.env.PORT
-const dotenv = require("dotenv").config()
+const dotenv = require("dotenv")
+dotenv.config()
 
 
 
@@ -13,9 +14,10 @@ const dotenv = require("dotenv").config()
 //* passport = TDxh07Q4C6RfuSUN
 
 app.use(cors())
+app.use(express.json());
 // app.use(errorHandler)
 
-app.use(express.json());
+
 
 app.use("/cartItem", require("./routes/productRoute"))
 
